@@ -10,8 +10,9 @@
  ***               Builds a sample directed weighted graph, runs the
  ***               improved algorithm from a chosen source vertex,
  ***               and prints the resulting shortest path distances.
- ***               This version uses a priority queue (min-heap) to
- ***               achieve O((V + E) log V) time complexity.       ***
+ ***               This version uses a priority queue plus a
+ ***               frontier-reduction step inspired by the research
+ ***               paper to shrink the active frontier.            ***
  ********************************************************************/
 
 package dijkstra.improved;
@@ -38,7 +39,7 @@ public class Main {
         // Create a graph with 5 vertices (0 through 4)
         Graph graph = new Graph(5);
 
-        // Same test graph as classical version, for comparison
+        // Same test graph as the classical version, for comparison
         graph.addEdge(0, 1, 10);
         graph.addEdge(0, 2, 3);
         graph.addEdge(1, 2, 1);
